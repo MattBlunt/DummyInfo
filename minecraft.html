@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<head>
+ <script src="src/_bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+ <link rel="import" href="src/_bower_components/rise-google-sheet/rise-google-sheet.html">
+</head>
+<body>
+<rise-google-sheet
+   key="2PACX-1vT_W-WxQLThZmkSYiaIEtNDZLu2owP3fbf-cyr32tm5uroV5dHaFAHcheRjYSWnPzl5-ntesooXurQl" 
+   refresh="30">
+</rise-google-sheet>
+<!-- Initialize the Component -->
+<script>
+   var sheet = document.querySelector('rise-google-sheet');
+   // Respond to events it fires.
+   sheet.addEventListener('rise-google-sheet-response', function(e) {
+  	      if (e.detail && e.detail.cells) {
+          console.log(e.detail.cells); // Array of cell objects
+   	      }
+      });
+// Executes a request.
+sheet.go();
+</script>
+<table id="sheetTable" class="pure-table pure-table-bordered">
+  <thead>
+   <tr>
+    <!-- dynamically add column header titles -->
+   </tr>
+  </thead>
+ <tbody>
+  <!-- dynamically populate table cells -->
+ </tbody>
+</table>
+</body>
